@@ -10,6 +10,9 @@ build:
 pipeline:
 	make lint && make coverage && make build
 
+run:
+	go run ./cmd/main.go
+
 .PHONY: lint, coverage, build, pipeline
 
 .DEFAULT_GOAL := pipeline
