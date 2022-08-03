@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	github.com/andygrunwald/go-jira v1.15.1 // indirect
+	github.com/atotto/clipboard v0.1.4 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/golang-jwt/jwt/v4 v4.3.0 // indirect

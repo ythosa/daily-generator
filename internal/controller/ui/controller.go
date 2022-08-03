@@ -3,6 +3,7 @@ package ui
 import (
 	"fmt"
 
+	"github.com/atotto/clipboard"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
@@ -37,7 +38,7 @@ func NewController(
 }
 
 func (c *controllerImpl) Start() {
-	fmt.Println("Daily Generator!!!")
+	fmt.Println("// Welcome to Daily Generator! ")
 
 	dailyData, err := c.scanner.Scan()
 	if err != nil {
@@ -49,8 +50,15 @@ func (c *controllerImpl) Start() {
 		logrus.Fatal("failed to map daily data to message")
 	}
 
+	fmt.Println("// Generation in progress ...")
 	message := c.formatService.FormatDailyMessage(dailyMessage)
-	fmt.Printf("Generation done:\n%s\n ", message)
+	if err := clipboard.WriteAll(message); err != nil {
+		logrus.Warn(fmt.Sprintf("failed to copy to clipboard: %s", err))
+		fmt.Println("// Generation done!")
+	} else {
+		fmt.Println("// Generation done! (copied to clipboard)")
+	}
+	fmt.Printf("%s\n", message)
 }
 
 func (c *controllerImpl) mapDailyDataToDailyMessage(data *models.DailyData) (*models.DailyMessage, error) {
