@@ -6,12 +6,16 @@ import (
 	"os"
 
 	"github.com/pkg/errors"
+	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
 
 const (
-	configsFolderPathEnv = "DG_CONFIGS_FOLDER_PATH"
-	configNameEnv        = "DG_CONFIG_NAME"
+	configsFolderPathEnv     = "DG_CONFIGS_FOLDER_PATH"
+	defaultConfigsFolderPath = "./configs"
+
+	configNameEnv     = "DG_CONFIG_NAME"
+	defaultConfigName = "config"
 )
 
 type Config struct {
@@ -90,12 +94,16 @@ func getJiraCredentials() (*JiraCredentials, error) {
 func initConfigParser() error {
 	configsFolderPath := os.Getenv(configsFolderPathEnv)
 	if configsFolderPath == "" {
-		return fmt.Errorf("empty configs folder path environment variable: %s", configsFolderPathEnv)
+		logrus.Warn(fmt.Sprintf("empty configs folder path environment variable: %s, using default: %s",
+			configsFolderPathEnv, defaultConfigsFolderPath))
+		configsFolderPath = defaultConfigsFolderPath
 	}
 
 	configName := os.Getenv(configNameEnv)
 	if configName == "" {
-		return fmt.Errorf("empty config name environment variable: %s", configNameEnv)
+		logrus.Warn(fmt.Sprintf("empty config name environment variable: %s, using default: %s",
+			configNameEnv, defaultConfigName))
+		configName = defaultConfigName
 	}
 
 	viper.AddConfigPath(configsFolderPath)
