@@ -1,0 +1,5 @@
+jira:
+  url: "https://jira.ru"
+  username: "username"
+  password: "password"
+  project: "MYPROJECT"
