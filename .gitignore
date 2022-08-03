@@ -20,3 +20,6 @@ vendor/
 # User configs
 configs/
 !configs/example.yaml
+
+# Binary
+daily-generator
