@@ -14,12 +14,12 @@ import (
 func main() {
 	cfg, err := config.GetConfig()
 	if err != nil {
-		logrus.Fatal("failed to get config", err)
+		logrus.Fatal("failed to get config: ", err)
 	}
 
 	jiraClient, err := jirawrapper.GetJiraClient(cfg)
 	if err != nil {
-		logrus.Fatal("failed to get jira client", err)
+		logrus.Fatal("failed to get jira client: ", err)
 	}
 
 	formatService := formatservice.NewFormatService(cfg.JiraURL)
