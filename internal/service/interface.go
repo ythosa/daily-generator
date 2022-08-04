@@ -3,7 +3,7 @@ package service
 import "daily-generator/internal/models"
 
 type JiraService interface {
-	GetJiraSummaryByIssueID(id string) (string, error)
+	GetJiraDailyMessage(data *models.DailyData) (*models.DailyMessage, error)
 }
 
 type FormatService interface {

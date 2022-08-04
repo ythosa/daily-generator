@@ -23,7 +23,7 @@ func main() {
 	}
 
 	formatService := formatservice.NewFormatService(cfg.JiraURL)
-	jiraService := jiraservice.NewJiraService(jiraClient)
+	jiraService := jiraservice.NewJiraService(cfg, jiraClient)
 
 	scanner := terminal.NewTerminalScanner()
 
