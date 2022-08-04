@@ -61,12 +61,12 @@ func getJiraURL() (string, error) {
 }
 
 func getJiraProject() (string, error) {
-	jiraURL := viper.GetString("jira.project")
-	if _, err := url.Parse(jiraURL); err != nil {
+	jiraProject := viper.GetString("jira.project")
+	if _, err := url.Parse(jiraProject); err != nil {
 		return "", errors.Wrap(err, "invalid jira project")
 	}
 
-	return jiraURL, nil
+	return jiraProject, nil
 }
 
 type JiraCredentials struct {
