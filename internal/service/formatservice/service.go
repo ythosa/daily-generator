@@ -26,7 +26,7 @@ func (f *formatService) FormatDailyMessage(data *models.DailyMessage) string {
 	messageBuilder.WriteString(f.formatIssues(data.Yesterday))
 	messageBuilder.WriteString("\n")
 
-	messageBuilder.WriteString("**Что вы делали сегодня?**\n")
+	messageBuilder.WriteString("**Что вы будете делать сегодня?**\n")
 	messageBuilder.WriteString(f.formatIssues(data.Today))
 	messageBuilder.WriteString("\n")
 
