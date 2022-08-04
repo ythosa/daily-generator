@@ -1,4 +1,5 @@
 # daily-generator
+[![daily-generator](https://github.com/Ythosa/daily-generator/actions/workflows/main.yml/badge.svg)](https://github.com/Ythosa/daily-generator/actions/workflows/main.yml)
 
 ## Description
 Generator for daily. Generates by jira task ids message in format:
