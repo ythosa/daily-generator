@@ -13,8 +13,6 @@ import (
 	"daily-generator/pkg/collections"
 )
 
-const prefix = ">> "
-
 var _ scanner.Scanner = (*terminalScanner)(nil)
 
 type terminalScanner struct {
@@ -28,21 +26,21 @@ func NewTerminalScanner() *terminalScanner {
 func (t *terminalScanner) Scan() (*models.DailyData, error) {
 	var result = new(models.DailyData)
 
-	fmt.Printf("%s🍉 Input yesterday issues: ", prefix)
+	t.printMessage("🍉 Input yesterday issues")
 	yesterdayIssues, err := t.scanIssues()
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to scan yesterday issues")
 	}
 	result.Yesterday = yesterdayIssues
 
-	fmt.Printf("%s🍒 Input today issues: ", prefix)
+	t.printMessage("🍒 Input today issues")
 	todayIssues, err := t.scanIssues()
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to scan today issues")
 	}
 	result.Today = todayIssues
 
-	fmt.Printf("%s🍑 Input problems: ", prefix)
+	t.printMessage("🍑 Input problems")
 	problems, err := t.scanProblems()
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to scan problems")
@@ -74,4 +72,10 @@ func (t *terminalScanner) scanProblems() (string, error) {
 	}
 
 	return line, nil
+}
+
+const messagePrefix = ">>"
+
+func (t *terminalScanner) printMessage(message string) {
+	fmt.Printf("%s %s: ", messagePrefix, message)
 }
