@@ -56,5 +56,5 @@ func (c *controllerImpl) Start() {
 	} else {
 		fmt.Println("// Generation done! (copied to clipboard)")
 	}
-	fmt.Printf("%s\n", message)
+	fmt.Printf("\n%s\n", message)
 }
