@@ -5,7 +5,7 @@ import "fmt"
 type JiraIssueID string
 
 func (j JiraIssueID) GetURL(baseURL string) string {
-	return fmt.Sprintf("%s/%s", baseURL, j)
+	return fmt.Sprintf("%s/browse/%s", baseURL, j)
 }
 
 type Issue struct {
