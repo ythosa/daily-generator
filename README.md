@@ -5,10 +5,10 @@
 Generator for daily. Generates by jira task ids message in format:
 ```markdown
 **Что вы делали вчера?**
-* [MYPROJECT-321](https://jira.com/MYPROJECT-321) - MYPROJECT-321 issue summary
-* [MYPROJECT-322](https://jira.com/MYPROJECT-322) - MYPROJECT-322 issue summary  
+* [MYPROJECT-321](https://jira.com/browse/MYPROJECT-321) - MYPROJECT-321 issue summary
+* [MYPROJECT-322](https://jira.com/browse/MYPROJECT-322) - MYPROJECT-322 issue summary  
 **Что вы будете делать сегодня?**
-* [MYPROJECT-323](https://jira.com/MYPROJECT-323) - MYPROJECT-323 issue summary 
+* [MYPROJECT-323](https://jira.com/browse/MYPROJECT-323) - MYPROJECT-323 issue summary 
 **Отлично, есть ли какие-то препятствия?**
 Nope
 ```
@@ -50,10 +50,10 @@ The result will be copied to the clipboard and output to the console.
 Here is result for our examples:
 ```markdown
 **Что вы делали вчера?**
-* [MYPROJECT-321](https://jira.com/MYPROJECT-321) - some description from jira 1
-* [MYPROJECT-322](https://jira.com/MYPROJECT-322) - some description from jira 2
+* [MYPROJECT-321](https://jira.com/browse/MYPROJECT-321) - some description from jira 1
+* [MYPROJECT-322](https://jira.com/browse/MYPROJECT-322) - some description from jira 2
 **Что вы будете делать сегодня?**
-* [MYPROJECT-323](https://jira.com/MYPROJECT-323) - some description from jira 3
+* [MYPROJECT-323](https://jira.com/browse/MYPROJECT-323) - some description from jira 3
 **Отлично, есть ли какие-то препятствия?**
 Interviews :((
 ```
