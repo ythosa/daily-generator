@@ -12,5 +12,5 @@ func TestJiraIssueID_GetURL(t *testing.T) {
 	jiraURL := "https://jira.ru"
 	jiraIssueID := "353"
 
-	assert.Equal(t, JiraIssueID(jiraIssueID).GetURL(jiraURL), "https://jira.ru/353")
+	assert.Equal(t, JiraIssueID(jiraIssueID).GetURL(jiraURL), "https://jira.ru/browse/353")
 }
